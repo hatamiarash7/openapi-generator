@@ -1,0 +1,148 @@
+name: Test action
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "entrypoint.py"
+      - "action.yml"
+      - "example/**"
+      - ".github/workflows/test.yml"
+  pull_request:
+    branches:
+      - main
+    paths:
+      - "entrypoint.py"
+      - "action.yml"
+      - "example/**"
+      - ".github/workflows/test.yml"
+
+jobs:
+  test-url:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: OpenAPI Generator
+        uses: hatamiarash7/openapi-generator@v0.1.0
+        with:
+          generator: rust
+          config-file: example/config.yml
+          openapi-url: https://raw.githubusercontent.com/hatamiarash7/openapi-generator/main/example/petstore.yaml
+      - run: cd rust-client
+
+  test-file:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: OpenAPI Generator
+        uses: hatamiarash7/openapi-generator@v0.1.0
+        with:
+          generator: rust
+          config-file: example/config.yml
+          openapi-file: example/petstore.yaml
+      - run: cd rust-client
+
+  test-absolute-file:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: OpenAPI Generator
+        uses: hatamiarash7/openapi-generator@v0.1.0
+        with:
+          generator: rust
+          config-file: example/config.yml
+          openapi-file: /github/workspace/example/petstore.yaml
+      - run: cd rust-client
+
+  test-absolute-config:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: OpenAPI Generator
+        uses: hatamiarash7/openapi-generator@v0.1.0
+        with:
+          generator: rust
+          config-file: /github/workspace/example/config.yml
+          openapi-file: example/petstore.yaml
+      - run: cd rust-client
+
+  test-template:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: OpenAPI Generator
+        uses: hatamiarash7/openapi-generator@v0.1.0
+        with:
+          generator: rust
+          config-file: example/config.yml
+          openapi-file: example/petstore.yaml
+          template-dir: example/templates/rust/
+      - run: cd rust-client
+
+  test-absolute-template:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: OpenAPI Generator
+        uses: hatamiarash7/openapi-generator@v0.1.0
+        with:
+          generator: rust
+          config-file: example/config.yml
+          openapi-file: example/petstore.yaml
+          template-dir: /github/workspace/example/templates/rust/
+      - run: cd rust-client
+
+  test-openapi-version:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: OpenAPI Generator
+        uses: hatamiarash7/openapi-generator@v0.1.0
+        with:
+          generator: rust
+          config-file: example/config.yml
+          openapi-file: example/petstore.yaml
+          generator-tag: v5.0.0
+      - run: cd rust-client
+
+  test-no-config:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: OpenAPI Generator
+        uses: hatamiarash7/openapi-generator@v0.1.0
+        with:
+          generator: rust
+          openapi-file: example/petstore.yaml
+      - run: cd rust-client
+
+  test-command-args:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: OpenAPI Generator
+        uses: hatamiarash7/openapi-generator@v0.1.0
+        with:
+          generator: rust
+          openapi-file: example/petstore.yaml
+          command-args: --model-name-prefix=FOO
+      - run: test -f rust-client/src/models/foo_a_model.rs
