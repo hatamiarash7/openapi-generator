@@ -1,6 +1,6 @@
 # OpenAPI Generator Action
 
-![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/hatamiarash7/openapi-generator?color=%2300baba&label=Marketplace&logo=github)
+![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/hatamiarash7/openapi-generator?color=%2300baba&label=Marketplace&logo=github) [![Test](https://github.com/hatamiarash7/openapi-generator/actions/workflows/test.yml/badge.svg?branch=main)](https://github.com/hatamiarash7/openapi-generator/actions/workflows/test.yml)
 
 This GitHub Action allows you to automatically generate code using the OpenAPI Tools generator. The OpenAPI Tools generator provides a set of powerful features to generate client SDKs, server stubs, documentation, and more from your OpenAPI specification file.
 
