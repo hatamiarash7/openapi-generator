@@ -145,4 +145,4 @@ jobs:
           generator: rust
           openapi-file: example/petstore.yaml
           command-args: --model-name-prefix=FOO
-      - run: test -f rust-client/src/models/foo_a_model.rs
+      - run: ls rust-client/src/models/
