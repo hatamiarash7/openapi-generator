@@ -24,7 +24,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Generate code
-        uses: hatamiarash7/openapi-generator@v0.1.0
+        uses: hatamiarash7/openapi-generator@v0.2.0
         with:
           generator: python
           openapi-file: example.yml
