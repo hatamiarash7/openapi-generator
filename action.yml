@@ -3,7 +3,6 @@ description: "Generates a client library using OpenAPI generator"
 branding:
   icon: package
   color: red
-
 inputs:
   generator:
     description: The name of the generator to use e.g. "typescript-angular"
@@ -31,9 +30,8 @@ inputs:
   command-args:
     description: Additional arguments to pass through to the generator
     required: false
-
 runs:
   using: composite
   steps:
     - shell: bash
-      run: python ${{ github.action_path }}/entrypoint.py ${{ inputs.generator }} ${{ inputs.generator-tag }} ${{ inputs.openapi-file }} ${{ inputs.openapi-url }} ${{ inputs.config-file }} ${{ inputs.template-dir }} ${{ inputs.command-args}}
+      run: python ${{ github.action_path }}/main.py ${{ inputs.generator }} ${{ inputs.generator-tag }} ${{ inputs.openapi-file }} ${{ inputs.openapi-url }} ${{ inputs.config-file }} ${{ inputs.template-dir }} ${{ inputs.command-args}}
