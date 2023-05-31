@@ -1,0 +1,39 @@
+name: "OpenAPI Generator"
+description: "Generates a client library using OpenAPI generator"
+branding:
+  icon: package
+  color: red
+
+inputs:
+  generator:
+    description: The name of the generator to use e.g. "typescript-angular"
+    required: true
+  generator-tag:
+    description: The Docker tag of the openapitools/openapi-generator-cli image to use
+    required: false
+    default: latest
+  openapi-file:
+    description: The path to the OpenAPI document
+    required: false
+    default: openapi.json
+  openapi-url:
+    description: If set, the OpenAPI document will be loaded from this URL instead of openapi-file
+    required: false
+    default: UNSET
+  config-file:
+    description: The path to the config file to be passed along to the generator
+    required: false
+    default: UNSET
+  template-dir:
+    description: The path to the folder containing the template files
+    required: false
+    default: UNSET
+  command-args:
+    description: Additional arguments to pass through to the generator
+    required: false
+
+runs:
+  using: composite
+  steps:
+    - shell: bash
+      run: python ${{ github.action_path }}/entrypoint.py ${{ inputs.generator }} ${{ inputs.generator-tag }} ${{ inputs.openapi-file }} ${{ inputs.openapi-url }} ${{ inputs.config-file }} ${{ inputs.template-dir }} ${{ inputs.command-args}}
