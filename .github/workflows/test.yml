@@ -26,7 +26,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: OpenAPI Generator
-        uses: hatamiarash7/openapi-generator@v0.1.0
+        uses: hatamiarash7/openapi-generator@v0.2.0
         with:
           generator: rust
           config-file: example/config.yml
@@ -40,7 +40,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: OpenAPI Generator
-        uses: hatamiarash7/openapi-generator@v0.1.0
+        uses: hatamiarash7/openapi-generator@v0.2.0
         with:
           generator: rust
           config-file: example/config.yml
@@ -54,7 +54,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: OpenAPI Generator
-        uses: hatamiarash7/openapi-generator@v0.1.0
+        uses: hatamiarash7/openapi-generator@v0.2.0
         with:
           generator: rust
           config-file: example/config.yml
@@ -68,7 +68,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: OpenAPI Generator
-        uses: hatamiarash7/openapi-generator@v0.1.0
+        uses: hatamiarash7/openapi-generator@v0.2.0
         with:
           generator: rust
           config-file: /github/workspace/example/config.yml
@@ -82,7 +82,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: OpenAPI Generator
-        uses: hatamiarash7/openapi-generator@v0.1.0
+        uses: hatamiarash7/openapi-generator@v0.2.0
         with:
           generator: rust
           config-file: example/config.yml
@@ -97,7 +97,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: OpenAPI Generator
-        uses: hatamiarash7/openapi-generator@v0.1.0
+        uses: hatamiarash7/openapi-generator@v0.2.0
         with:
           generator: rust
           config-file: example/config.yml
@@ -112,7 +112,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: OpenAPI Generator
-        uses: hatamiarash7/openapi-generator@v0.1.0
+        uses: hatamiarash7/openapi-generator@v0.2.0
         with:
           generator: rust
           config-file: example/config.yml
@@ -127,7 +127,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: OpenAPI Generator
-        uses: hatamiarash7/openapi-generator@v0.1.0
+        uses: hatamiarash7/openapi-generator@v0.2.0
         with:
           generator: rust
           openapi-file: example/petstore.yaml
@@ -140,7 +140,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: OpenAPI Generator
-        uses: hatamiarash7/openapi-generator@v0.1.0
+        uses: hatamiarash7/openapi-generator@v0.2.0
         with:
           generator: rust
           openapi-file: example/petstore.yaml
