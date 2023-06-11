@@ -47,7 +47,7 @@ jobs:
 | `output-dir`    |          | `UNSET`          | The path to the folder where the generated files will be placed                     |
 | `command-args`  |          |                  | Additional arguments to pass through to the generator                               |
 
-> **Note:** The default output directory is `./{generator}-client`. If you want to change this, you must set the `output-dir` input. You can also use an empty string `""` to write your files to the root of your repository.
+> **Note:** The default output directory is `./{generator}-client`. If you want to change this, you must set the `output-dir` input. You can also use the `/github/workspace` to write your files to the root of your repository.
 
 ---
 
