@@ -44,7 +44,10 @@ jobs:
 | `openapi-url`   |          | `UNSET`          | If set, the OpenAPI document will be loaded from this URL instead of `openapi-file` |
 | `config-file`   |          | `UNSET`          | The path to the config file to be passed along to the generator                     |
 | `template-dir`  |          | `UNSET`          | The path to the folder containing the template files                                |
+| `output-dir`    |          | `UNSET`          | The path to the folder where the generated files will be placed                     |
 | `command-args`  |          |                  | Additional arguments to pass through to the generator                               |
+
+> **Note:** The default output directory is `./{generator}-client`. If you want to change this, you must set the `output-dir` input. You can also use an empty string `""` to write your files to the root of your repository.
 
 ---
 

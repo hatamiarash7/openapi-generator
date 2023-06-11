@@ -8,12 +8,13 @@ generator, \
     openapi_url, \
     config_file, \
     template_dir, \
+    output_dir, \
     *args = sys.argv[1:]
 
 cmd = "docker run -u 1001 --rm --workdir /github/workspace"
 cmd = f"{cmd} -v {os.getenv('GITHUB_WORKSPACE')}:/github/workspace"
 cmd = f"{cmd} openapitools/openapi-generator-cli:{generator_tag} generate"
-cmd = f"{cmd} -g {generator} -o /github/workspace/{generator}-client"
+cmd = f"{cmd} -g {generator}"
 
 if openapi_url == "UNSET":
     if not openapi_file.startswith("/"):
@@ -31,6 +32,14 @@ if template_dir != "UNSET":
     if not template_dir.startswith("/"):
         template_dir = f"/github/workspace/{template_dir}"
     cmd += f" -t {template_dir}"
+
+if output_dir != "UNSET":
+    if not output_dir.startswith("/"):
+        output_dir = f"/github/workspace/{output_dir}"
+    cmd += f" -o {output_dir}"
+else:
+    cmd += f" -o /github/workspace/{generator}-client"
+
 
 if args:
     cmd += f" {' '.join(args)}"

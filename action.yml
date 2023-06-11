@@ -27,6 +27,10 @@ inputs:
     description: The path to the folder containing the template files
     required: false
     default: UNSET
+  output-dir:
+    description: The path to the folder where the generated files will be placed
+    required: false
+    default: UNSET
   command-args:
     description: Additional arguments to pass through to the generator
     required: false
