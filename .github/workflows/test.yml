@@ -85,6 +85,7 @@ jobs:
         uses: hatamiarash7/openapi-generator@v0.3.0
         with:
           generator: rust
+          openapi-file: example/petstore.yaml
           output-dir: custom
       - run: cd custom
 
